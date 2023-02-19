@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 
 
+import { nanoid } from "nanoid";
 import { v4 as uuid } from 'uuid';
 
 //import related icons from react icons
@@ -23,8 +24,6 @@ export const CreateFlashCard = () => {
   const fileRef = useRef(null);
   const editRef = useRef(null);
   const [groupImg, setGroupImg] = useState("");
-  // const [cardImg,setCardImg]=useState("");
-  // const cardRef=useRef(null);
   const uniqueId = uuid();
 
   //This function will add and dispatch new flashcard to the redux store and localstorage also. 
@@ -32,7 +31,6 @@ export const CreateFlashCard = () => {
     dispatch(addFlashCard(values));
     actions.resetForm();
     setGroupImg("");
-    //setCardImg("");
   };
 
   return (
@@ -46,19 +44,18 @@ export const CreateFlashCard = () => {
         group_image: null,
         cards: [
           {
-            card_id: uuid(),
+            card_id: nanoid(5),
             card_name: "",
             card_description: "",
-            card_image: null,
           },
         ],
-
+        
       }}
       validationSchema={Validation}
       onSubmit={addNewFlashCard} >
 
       {({ values, isSubmitting, setFieldValue }) => (
-
+        
         // this is form which user can give custom input here. 
 
         <Form className="w-full space-y-5 text-slate-500 font-medium">
@@ -97,7 +94,7 @@ export const CreateFlashCard = () => {
                     <MdOutlineUploadFile className="text-2xl" />
                     <span>Upload Image</span>
                     <input
-
+                      
                       value={groupImg}
                       type="file"
                       ref={fileRef}
@@ -197,56 +194,11 @@ export const CreateFlashCard = () => {
 
                             <div className="flex items-center space-x-2">
                               <button
-                                type="button"
                                 className="hidden lg:flex lg:items-center lg:w-[19rem] px-2 py-2 bg-white border-2  border-slate-300 active:border-blue-600 text-blue-700 font-semibold rounded-md space-x-2"
-                                title="Select Image" >
-
+                                title="Select Image" disabled="true">
+                                  
                                 <span className="ml-4">Select Image</span>
                               </button>
-
-                              {/* <div className="flex flex-col relative ">
-                                {cardImg ? (
-                                  <img
-                                    src={cardImg}
-                                    alt="cardImg"
-                                    className="w-28 h-28 object-contain"
-                                  />
-                                ) : (
-                                  <button
-                                    type="button"
-                                    title="Select Image"
-                                    onClick={() => cardRef.current.click()}
-                                    className="flex items-center px-5 py-2 mt-6 bg-white border-2 border-slate-300 active:border-blue-600 text-blue-700 font-semibold rounded-md space-x-2"
-                                  >
-                                    
-                                    <span>Select Image</span>
-                                    <input
-
-                                      value={cardImg}
-                                      type="file"
-                                      ref={cardRef}
-                                      onChange={(e) => {
-                                        const file = e.target.files[0];
-                                        const cardReader = new FileReader();
-                                        cardReader.readAsDataURL(file);
-
-                                        cardReader.onload = () => {
-                                          setFieldValue(`cards.${index}.card_image`, cardReader.result);
-                                          
-                                          setCardImg(cardReader.result);
-                                        };
-                                      }}
-                                      hidden
-                                    />
-                                  </button>
-                                )}
-                                <ErrorMessage
-                                  component={"div"}
-                                  className="text-sm text-red-500  "
-                                  name="card_image"
-                                />
-                              </div> */}
-
                               <div className="flex items-center justify-around w-full md:flex-col md:space-y-5 md:mt-5">
                                 <button
                                   type="button"
@@ -271,16 +223,15 @@ export const CreateFlashCard = () => {
                       type="button"
                       onClick={() =>
                         fieldArrayFun.push({
-                          card_id: uuid(),
+                          card_id: nanoid(),
                           card_name: "",
                           card_description: "",
-                          card_image: null
                         })
                       }
                       title="Add More"
                       className="flex items-center space-x-2 text-blue-600 font-medium text-sm bg-white w-full mb-5 px-5 py-2"
                     >
-                      <TbPlus className="text-xl" />
+                      <TbPlus className="text-xl"/>
                       <span>Add More</span>
                     </button>
                     <div className="flex justify-center w-full">

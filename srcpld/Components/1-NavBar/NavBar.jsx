@@ -10,7 +10,7 @@ export const NavBar = () => {
         {"Create Flashcard"}
       </h1>
       <div className="flex items-center space-x-10 mb-3">
-        <button className="text-sm font-bold text-red-600" title="Create New Flashcard" >
+        <button className="text-sm font-bold text-red-600" >
           
           {/* This button will navigate to create flashcard page */}
 
@@ -21,7 +21,7 @@ export const NavBar = () => {
             })}
           >Create New</NavLink>
         </button>
-        <button className="text-sm font-bold text-red-600" title="My Flashcard">
+        <button className="text-sm font-bold text-red-600" >
 
           {/* This button will navigate to Myflashcard page */}
           

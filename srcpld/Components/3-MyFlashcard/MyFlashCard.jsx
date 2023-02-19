@@ -25,30 +25,27 @@ export const MyFlashCard = () => {
                 </div>)
             }
           </div>
-          <div className=" flex justify-between">
-            <div className="flex  ">
-              {/* This will show total count of groups */}
-              <span className=" mt-1  text-lg text-red-600 ">Total : {flashcard.length}</span>
-            </div>
-            <div className="flex  ">
-              {
-                // Button will show after group length should be above six.
-                flashcard.length > 6 ?
-                  <button
-                    title="See All Flashcards"
-                    className=" mt-1 font-semibold text-lg text-red-600 "
-                    onClick={() => setSeeAll(!seeAll)} >
-                    {seeAll ? "See less" : "See all"}
-                  </button> : null
-              }
-            </div>
+          <div className="flex justify-end mr-10">
+            {
+              // Button will show after cards length should be above six.
+              flashcard.length > 6 ?
+                <button
+                  className=" mt-1 font-semibold text-lg text-red-600 outline-none border-none active:outline-none active:border-none"
+                  onClick={() => setSeeAll(!seeAll)} >
+                  {seeAll ? "See less" : "See all"}
+                </button> : null
+            }
           </div>
         </div>
       ) : (
         <div className="flex items-center justify-center bg-white shadow-lg p-20">
-          <h1 className="font-semibold text-xl text-slate-500">There is no Flashcard please{" "}
-            <span className="text-blue-600 cursor-pointer" onClick={() => navigate("/")} title="Create FlashCard.">
-              Create a new Flashcard.</span></h1>
+          <h1 className="font-semibold text-xl text-slate-500">
+            Nothing to SHOW, Go to{" "}
+            <span
+              className="text-blue-500 cursor-pointer"
+              onClick={() => navigate("/")}
+              title="Create FlashCard."
+            >Create Flashcard{" "}</span> to Create New </h1>
         </div>
       )}
     </section>
