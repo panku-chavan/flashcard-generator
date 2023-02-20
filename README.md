@@ -1,5 +1,36 @@
 # Flashcard Generator
 
+## Pages
+  1 - Create Flashcard Page.
+  2 - My Flashcard Page.
+  3 - Flashcard Details Page.
+  
+## Libraries and Packages
+  1 - react-router-dom
+  2 - react-redux/redux-toolkit
+  3 - react-icons
+  4 - Formik
+  5 - Tailwind CSS
+  5 - daisyUI-Tailwind CSS Components
+
+## Pages in brief
+### 1 - Create Flashcard Page.
+      This page will create a particular flashcard and contain two forms. One for creating a flashcard group and the other for adding terms or cards to that flashcard group.
+      The main flashcard form has three feilds - Create Group (Title of flashcard Group), Image and Description.
+      The term form will also have three feilds - Enter Term (Title of card), Enter Definition and image. Image feild is not working right now.
+      
+### 2 - My Flashcard Page.
+      This page will display all group of flashcards, Its shows image on top, then name og group, then description and last it has two buttons -
+        1 - View Cards
+            This will navigate to Flashcard Details Page.
+        2 - Delete Icon
+            This will open model to delete group of flashcard which user click.
+### 3 - Flashcard Details Page.
+      This page will have the layout as shown above. It must show the Flashcard title and description at the top.
+      The term in the flash card should be shown on the left side , and when a user clicks on a particular term, the details must be displayed in the center.
+      The center part i.e. the term details can also be shown as a carousel so that the user can navigate to other terms by clicking the arrow at the botton. On clicking the share button , a modal will open which will contain the link of that flashcard and copy icon(button). When user clicks the copy button , the link will be copied to clipboard and it will shown messege age "link copeid to clipboard".
+      Remainng two buttons not working right now.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
