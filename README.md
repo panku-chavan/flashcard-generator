@@ -2,15 +2,22 @@
 
 ## Pages
 1 - Create Flashcard Page.
+
 2 - My Flashcard Page.
+
 3 - Flashcard Details Page.
   
 ## Libraries and Packages
 1 - react-router-dom
+
 2 - react-redux/redux-toolkit
+
 3 - react-icons
+
 4 - Formik
+
 5 - Tailwind CSS
+
 6 - daisyUI-Tailwind CSS Components
 
 ## Pages in brief
