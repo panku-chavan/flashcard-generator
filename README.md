@@ -38,6 +38,12 @@ The term in the flash card should be shown on the left side , and when a user cl
 The center part i.e. the term details can also be shown as a carousel so that the user can navigate to other terms by clicking the arrow at the botton. On clicking the share button , a modal will open which will contain the link of that flashcard and copy icon(button). When user clicks the copy button , the link will be copied to clipboard and it will shown messege age "link copeid to clipboard".
 Remainng two buttons not working right now.
 
+### Folder Structure
+
+![Screenshot (4)](https://user-images.githubusercontent.com/114158846/220156048-abf1df2e-8a4a-41bd-821e-463e26840112.png)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
