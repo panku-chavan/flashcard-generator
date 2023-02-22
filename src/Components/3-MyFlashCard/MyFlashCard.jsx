@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FlashCard } from "./FlashCard";
-
+import sorry from "../../assets/sorry.png";
 
 export const MyFlashCard = () => {
   const navigate = useNavigate();
@@ -45,10 +45,15 @@ export const MyFlashCard = () => {
           </div>
         </div>
       ) : (
-        <div className="flex items-center justify-center bg-white shadow-lg p-20">
+        <div className="flex items-center  bg-white shadow-lg p-20">
+          <div className="">
+            <img src={sorry} alt="sorry" className="h-60 w-50" />
+            </div>
+          <div className="pt-5">
           <h1 className="font-semibold text-xl text-slate-500">There is no Flashcard please{" "}
             <span className="text-blue-600 cursor-pointer" onClick={() => navigate("/")} title="Create FlashCard.">
               Create a new Flashcard.</span></h1>
+          </div>
         </div>
       )}
     </section>
