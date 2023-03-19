@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { v4 as uuid } from 'uuid';
 
@@ -27,12 +29,17 @@ export const CreateFlashCard = () => {
   // const cardRef=useRef(null);
   const uniqueId = uuid();
 
+  const notify = () => {
+    toast("Flashcard Created Successfully.....");
+  }
+  
   //This function will add and dispatch new flashcard to the redux store and localstorage also. 
   const addNewFlashCard = (values, actions) => {
     dispatch(addFlashCard(values));
     actions.resetForm();
     setGroupImg("");
     //setCardImg("");
+    notify();
   };
 
   return (
@@ -300,6 +307,7 @@ export const CreateFlashCard = () => {
           </div>
         </Form>
       )}
+      <ToastContainer/>
     </Formik>
   );
 };
