@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { deleteFlashCard, updateState } from "../../Redux/Reducer/flashcardSlice";
 import { Button, Modal } from "react-daisyui";
 import { TrashIcon } from "@heroicons/react/outline";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export const FlashCard = ({ card, flashcards }) => {
@@ -25,11 +27,15 @@ export const FlashCard = ({ card, flashcards }) => {
     setshowDelete(false);
   }
 
+  const notify=()=>{
+    toast("Deleted Successfully....")
+  }
   //this function will handle the deleteFlashcard funtion from reducer.
   const handleDelete = () => {
     dispatch(deleteFlashCard(deleteId));
     dispatch(updateState());
     closeDelete();
+    notify();
   }
   return (
     <div
@@ -106,7 +112,7 @@ export const FlashCard = ({ card, flashcards }) => {
           </div>
         </Modal.Body>
       </Modal>
-
+    <ToastContainer/>
     </div>
   );
 };
